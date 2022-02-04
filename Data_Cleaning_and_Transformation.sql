@@ -30,7 +30,6 @@ SELECT currency, COUNT(*) [No. of Currency] FROM transactions2
 GROUP BY currency ORDER BY 1;
 
 
-
 -- HANDLING MISSING VALUES
 -- Get the records of transactions where the sales_amount is zero or less 
 -- This could be treated as missing values due to unsuccessful transactions
@@ -43,6 +42,19 @@ DELETE FROM transactions2 WHERE sales_amount <= 0;
 
 -- Get the records of transactions where the sales_qty is zero or less
 SELECT * FROM transactions2 WHERE sales_qty <= 0;
+
+
+-- Remove duplicate values from the transaction records
+SELECT DISTINCT * FROM transactions2
+MINUS
+SELECT DISTINCT * FROM transactions2 WHERE currency IN ('USD','NGN');
+
+-- Create a non duplicate transaction view
+CREATE VIEW nonDuplicate_Txn
+AS
+SELECT DISTINCT * FROM transactions2;
+
+SELECT * FROM nonDuplicate_Txn;
 
 
 -- Retrieve the records where US Dollar is used for the transactions
