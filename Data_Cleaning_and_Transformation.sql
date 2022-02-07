@@ -49,13 +49,6 @@ SELECT DISTINCT * FROM transactions2
 MINUS
 SELECT DISTINCT * FROM transactions2 WHERE currency IN ('USD','NGN');
 
--- Create a non duplicate transaction view
-CREATE VIEW nonDuplicate_Txn
-AS
-SELECT DISTINCT * FROM transactions2;
-
-SELECT * FROM nonDuplicate_Txn;
-
 
 -- Retrieve the records where US Dollar is used for the transactions
 SELECT * FROM transactions2 WHERE currency='USD';
@@ -90,3 +83,13 @@ WHERE currency = 'USD';
 
 -- Verify the changes in the transform records
 SELECT * FROM dbo.transactions2;
+
+
+-- Create a non duplicate transaction view
+CREATE VIEW nonDuplicate_Txn
+AS
+SELECT DISTINCT * FROM transactions2;
+
+
+-- Lets query the view created
+SELECT * FROM nonDuplicate_Txn;
