@@ -1,5 +1,5 @@
 # data_cleaning_and_transformation
-This project helps us to remove duplicate transactions, unsucessful transactions and transform transactions done in US Dollar into equivalent Nigerian Naira.
+This is an SQL-based project that helps us to remove duplicate transactions, unsucessful transactions and transform transactions done in US Dollar into equivalent Nigerian Naira.
 
 -- Select and activate the salesDB database
 USE salesDB;
