@@ -1,20 +1,10 @@
 # data_cleaning_and_transformation
--- Retrieve the Server Name
-SELECT @@SERVERNAME [Server Name]
-
--- Retrieve the databases
-SELECT db_name() [Current Database]
-
-SELECT * FROM sys.databases;
 
 -- Select and activate the salesDB database
 USE salesDB;
 
 -- Retrieve the tables from the salesDB database
 SELECT table_name from INFORMATION_SCHEMA.TABLES;
-
--- Drop transactions2 table if it exist
-DROP TABLE transactions2;
 
 -- Make a copy of the transactions table to do cleaning and transformation
 SELECT *
